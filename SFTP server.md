@@ -133,7 +133,7 @@ systemctl enable auditd
 ```
 
 ### Configuration
-The configuration of auditd is handled in a single file (where as rules are handled in a completely separate file). Although the default should suffice for most needs, you can configure the system by issuing the command
+The configuration of audit is handled in a single file (whereas rules are handled in a completely separate file). Although the default should suffice for most needs, you can configure the system by issuing the command
 ```nh
 vi /etc/audit/auditd.conf
 ```
