@@ -9,3 +9,4 @@ Please note, I chose to use CentOS 7 for convenience purposes. However, the comm
 - Basic understanding of Linux Bash.
 - Remote machine for testing (In my case I used Windows with Git Bash)
 
+## How to configure Git server manually
