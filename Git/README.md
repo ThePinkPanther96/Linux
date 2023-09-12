@@ -10,8 +10,9 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 
 ## How to configure the Git server manually
 ### Server side
-
+t
 
 ### Client side
-
+t
 ## Testing
+t
