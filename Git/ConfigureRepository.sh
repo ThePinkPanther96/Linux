@@ -25,9 +25,9 @@ if directory_exists "$repo_path/$repo_name.git"; then
 fi
 
 # Create the repository directory
-mkdir -p "$repo_path/$repo_name.git"
+mkdir -p "~/$repo_path/$repo_name.git"
 
 # Initialize a bare Git repository
-su - "$git_user" -c "git init --bare '$repo_path/$repo_name.git'"
+su - "$git_user" -c "git init --bare --shared '$repo_path/$repo_name.git'"
 
 echo "Repository '$repo_name' created successfully in '$repo_path'."

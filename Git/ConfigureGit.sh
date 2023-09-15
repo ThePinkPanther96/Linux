@@ -35,7 +35,7 @@ mkdir ~/git-repos
 
 # Initialize a bare Git repository
 cd ~/git-repos
-git init --bare $REPO_NAME.git
+git init --bare --shared $REPO_NAME.git
 
 # Set permissions for the Git repository
 chown -R git:git $REPO_NAME.git
