@@ -10,8 +10,8 @@ SSH_KEY_PATH="~/.ssh/id_rsa"
 SSH_PUBLIC_KEY_PATH="${SSH_KEY_PATH}.pub"
 
 # Set variables for remote server
-REMOTE_USERNAME="git"
-REMOTE_HOST="IP/HOSTNAME"
+REMOTE_USERNAME="unix"
+REMOTE_HOST="192.168.1.51"
 
 # Step 1: Generate SSH key pair without user prompts
 ssh-keygen -t "$KEY_TYPE" -b "$KEY_BITS" -C "$KEY_COMMENT" -f "$SSH_KEY_PATH" -N ""
