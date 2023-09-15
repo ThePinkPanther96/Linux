@@ -5,9 +5,9 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__) 
 
 
-host = "172.31.22.100"
-username = "centos"
-command =  "sudo /root/client.sh chnx75"
+host = "IPAddres"
+username = "Username"
+command =  "Command"
 
 def ssh_run_remote(host,username,command):
 
