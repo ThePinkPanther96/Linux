@@ -56,9 +56,13 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    ```
 
 ## Configuring local Git Repository on the client side
+
+
 ### Linux Client
 
+
 ## Windows Client
+
 
 ## Testing
 
