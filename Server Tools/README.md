@@ -1,6 +1,6 @@
 
 # SFTP-Server
-### In this tutorial I will be sowing you how to construct an Ubuntu-based SFTP server with groups and users, as well as configuring SFTP Jail, File auditing, and Fail2Ban.
+In this tutorial, I will instruct you on how to construct an Ubuntu-based SFTP server with groups, and users, as well as configure SFTP Jail, File auditing, and Fail2Ban.
 
 
 ## Requirements
