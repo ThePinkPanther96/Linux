@@ -1,28 +1,37 @@
 #!/bin/bash
 
-# Set variables for SSH key generation
-KEY_TYPE="rsa"
-KEY_BITS="4096"
-KEY_COMMENT="N/A"  # Change this to your desired comment
+# Define variables
+remote_server="192.168.1.51"  # Replace with your server's IP address or hostname
+remote_user="git"             # Replace with the remote user on the server
+key_comment="Gal R"           # Replace with your desired comment for the SSH key
 
-# Set variables for SSH key file paths
-SSH_KEY_PATH="~/.ssh/id_rsa"
-SSH_PUBLIC_KEY_PATH="${SSH_KEY_PATH}.pub"
+# Generate SSH key pair
+ssh-keygen -t rsa -b 4096 -C "$key_comment"
 
-# Set variables for remote server
-REMOTE_USERNAME="unix"
-REMOTE_HOST="192.168.1.51"
-
-# Step 1: Generate SSH key pair without user prompts
-ssh-keygen -t "$KEY_TYPE" -b "$KEY_BITS" -C "$KEY_COMMENT" -f "$SSH_KEY_PATH" -N ""
-
-# Step 2: Start SSH agent and add the SSH key
-eval "$(ssh-agent -s)"
-ssh-add "$SSH_KEY_PATH"
-
-# Step 3: Copy SSH public key to remote server (if not already authorized)
-if ! ssh-copy-id "$REMOTE_USERNAME@$REMOTE_HOST"; then
-  echo "SSH public key already authorized on $REMOTE_HOST or an error occurred."
+# Check if the SSH key pair generation was successful
+if [ $? -eq 0 ]; then
+    echo "SSH key pair generated successfully."
 else
-  echo "SSH public key copied to $REMOTE_HOST for user $REMOTE_USERNAME."
+    echo "Error: SSH key pair generation failed."
+    exit 1
 fi
+
+# Copy the public key to the remote server
+cat ~/.ssh/id_rsa.pub | ssh "$remote_user@$remote_server" 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys'
+
+# Check if the public key was successfully copied
+if [ $? -eq 0 ]; then
+    echo "Public key copied to the remote server."
+else
+    echo "Error: Public key copy to the remote server failed."
+    exit 1
+fi
+
+# Set appropriate permissions for the SSH directory and files
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+chmod 644 ~/.ssh/id_rsa.pub
+
+echo "SSH key-based authentication setup complete."
+
+# Optionally, you can add more commands here to configure the Git repository or other settings as needed.
