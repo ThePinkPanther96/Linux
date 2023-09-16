@@ -61,7 +61,7 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 ### Linux Client
 
 
-## Windows Client
+### Windows Client
 
 
 ## Testing
