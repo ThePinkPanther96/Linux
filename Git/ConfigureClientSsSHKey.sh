@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Define variables
-remote_server="192.168.1.51"  # Replace with your server's IP address or hostname
-remote_user="git"             # Replace with the remote user on the server
-key_comment="Gal R"           # Replace with your desired comment for the SSH key
+remote_server="IPAddress"  # Replace with your server's IP address or hostname
+remote_user="GitUser"             # Replace with the remote user on the server
+key_comment="N/A"           # Replace with your desired comment for the SSH key
 
 # Generate SSH key pair
-ssh-keygen -t rsa -b 4096 -C "$key_comment"
+ssh-keygen -t rsa -b 4096 -C "$key_comment" 
 
 # Check if the SSH key pair generation was successful
 if [ $? -eq 0 ]; then
