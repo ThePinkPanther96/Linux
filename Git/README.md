@@ -44,7 +44,9 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    ```
    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
    ```
+   
 *NOTE!* The server configuration is now complete. Now we will create a Git repository.
+
 8. Create a new directory to store the repositories *(optional)*:
    ```
    mkdir -p ~/git-repos/new-rep.git
