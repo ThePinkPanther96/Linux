@@ -149,10 +149,10 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 ## Automation
 For convenience purposes, I created three Bash scripts to assist with Git configuration on both the server and the client.
 
-[ConfigureGit.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureGit.sh) - 
+- [ConfigureGit.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureGit.sh) - 
 This script automates the setup of a Git server environment. It installs Git, creates a 'git' user, generates an SSH key pair for the 'git' user, sets up an Authorized Keys file, creates a directory for Git repositories, initializes the repository, and sets appropriate permissions for the Git repository and its contents.
 
-[ConfigureRepository.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureRepository.sh) - This script sets up a new Git repository on the server by specifying the Git user, the path for the repository, and its name. It checks if the repository directory already exists, creates it if it doesn't, and initializes the Git repository within that directory. 
+- [ConfigureRepository.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureRepository.sh) - This script sets up a new Git repository on the server by specifying the Git user, the path for the repository, and its name. It checks if the repository directory already exists, creates it if it doesn't, and initializes the Git repository within that directory. 
 
-[ConfigureClientSsSHKey.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureClientSsSHKey.sh) - This script sets up SSH key-based authentication for a remote client by generating an SSH key pair, copying the public key to the server, and configuring the necessary permissions.
+- [ConfigureClientSsSHKey.sh](https://github.com/ThePinkPanther96/Linux/blob/main/Git/ConfigureClientSsSHKey.sh) - This script sets up SSH key-based authentication for a remote client by generating an SSH key pair, copying the public key to the server, and configuring the necessary permissions.
 
