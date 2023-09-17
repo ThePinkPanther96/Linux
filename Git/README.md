@@ -114,7 +114,8 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    ```
    git commit -m "Add a sample file"
    ```
-8. ```
+8. Push the changes to origin master:
+   ```
    git push origin master
    ```
    ```
