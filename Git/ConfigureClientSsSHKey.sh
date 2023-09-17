@@ -2,7 +2,7 @@
 
 # Define variables
 remote_server="IPAddress"  # Replace with your server's IP address or hostname
-remote_user="GitUser"             # Replace with the remote user on the server
+remote_user="User"             # Replace with the remote user on the server
 key_comment="N/A"           # Replace with your desired comment for the SSH key
 
 # Generate SSH key pair

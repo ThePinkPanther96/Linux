@@ -1,12 +1,12 @@
 # Configure Git Server
 ## Introduction 
 The purpose of this tutorial is to set up a comprehensive Git server environment, comprising a Git user, a repository, and SSH keys, on CentOS 7. Please note that I've chosen CentOS 7 for the sake of convenience. Nevertheless, the commands and accompanying scripts can be easily adapted for different Linux distributions.
-199
+
 ## Requirements
 - CentOS 7 environment
 - Working networking connection with access to the internet.
 - Basic understanding of Linux Bash.
-- Remote client for testing (In my case I used Windows with Git Bash)
+- Remote client for testing (In my case I used Windows client with (Git bash)[https://git-scm.com/download/win])
 
 ## How to configure the Git server manually
 ## Server side
@@ -44,11 +44,11 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 *NOTE!* The server configuration is now complete. Now we will create a Git repository.
 8. Create a new directory to store the repositories *(optional)*:
    ```
-   mkdir -p ~/git-repos/<directoryName>.git
+   mkdir -p ~/git-repos/new-rep.git
    ```
 9. Inintioalize the new empty repository:
    ```
-   git init --bare --shared /git-repos/<TheNewDirectory>.git
+   git init --bare --shared /git-repos/new-rep.git
    ```
    ```
    Output
@@ -57,12 +57,89 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 
 ## Configuring local Git Repository on the client side
 
-
-### Linux Client
-
-
-### Windows Client
-
-
+1. Navigate back to the client. 
+   *NOTE!* If you are using a Windows client use (Git bash)[https://git-scm.com/download/win] for Windows. 
+2. Genetate ssh key and follow the prompts:
+   ```
+   ssh-keygen
+   ```
+3. After a successful key generation, copy the key to the target user's authorized keys on the server (in this case, user 'git'):
+   ```
+   ssh-copy-id git@192.168.1.51
+   ```
 ## Testing
+1. Test connection, try logging in to the server:
+   ```
+   ssh -i ~/.ssh/id_rsa git@192.168.1.51
+   ```
+2. "After a successful login, create a project directory, and then try cloning a repository:
+   ```
+   mkdir -p /path/to/local/project
+   ```
+3. Navigate to the project directory: 
+   ```
+   cd /path/to/local/project
+   ```
+4. Clone the repository from the server to the client: 
+   ```
+   git remote add origin git@192.168.1.51:new-repo.git
+   ```
+   ```
+   Output:
+   debug1: pledge: fork
+   warning: You appear to have cloned an empty repository.
+   debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+   debug1: channel 0: free: client-session, nchannels 1
+   Transferred: sent 3660, received 3056 bytes, in 0.2 seconds
+   Bytes per second: sent 17154.6, received 14323.6
+   debug1: Exit status 0
+   ```
+5. Create a test file:
+   ```
+   echo "Hello, Git!" > test.txt
+   ```
+6. Stage all the changes in your current project directory for the next commit:
+   ```
+   git add .
+   ```
+7. Commit: 
+   ```
+   git commit -m "Add a sample file"
+   ```
+8. ```
+   git push origin master
+   ```
+   ```
+   Output:
+   debug1: pledge: fork
+   Enumerating objects: 3, done.
+   Counting objects: 100% (3/3), done.
+   Writing objects: 100% (3/3), 217 bytes | 217.00 KiB/s, done.
+   Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+   debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+   debug1: channel 0: free: client-session, nchannels 1
+   Transferred: sent 4004, received 3288 bytes, in 0.2 seconds
+   Bytes per second: sent 17073.8, received 14020.6
+   debug1: Exit status 0
+   To 192.168.1.51:/home/git/git-repos/new-repo.git
+   * [new branch]      master -> master
+   ```
+
+## Testing the server side 
+1. On the server navigate to the requiered repository: 
+   ```
+   cd ~/git-repos/repo.git
+   ```
+2. Try to display information about the tree object in the selected Git repository:
+   ```
+   git ls-tree master
+   ```
+   ```
+   Output:
+   [root@localhost new-repo.git]# git ls-tree master
+   100644 blob 670a245535fe6316eb2316c1103b1a88bb519334    test.txt
+   ```
+   As you can see from the output, the 'text.txt' file we created previously was pushed to the server successfully.
+
+## Automation
 
