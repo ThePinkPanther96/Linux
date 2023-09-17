@@ -4,8 +4,9 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 
 ## Requirements
 - CentOS 7 environment
-- Working networking connection with access to the internet.
+- Working network connection with access to the internet.
 - Basic understanding of Linux Bash.
+- Understanding of Git.
 - Remote client for testing. (In my case I used a Windows client with [Git Bash](https://git-scm.com/download/win))
 
 ## How to configure the Git server manually
