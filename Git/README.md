@@ -6,7 +6,7 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 - CentOS 7 environment
 - Working networking connection with access to the internet.
 - Basic understanding of Linux Bash.
-- Remote client for testing (In my case I used Windows client with (Git bash)[https://git-scm.com/download/win])
+- Remote client for testing. In my case I used a Windows client with (Git bash)[https://git-scm.com/download/win] 
 
 ## How to configure the Git server manually
 ## Server side
@@ -15,9 +15,9 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    sudo yum install git -y
    ```
 2. Create a new user for managing the Git environment:
-   ```
-   sudo useradd -r -m -U -d /home/git -s /bin/bash git
-   ```
+      ```
+      sudo useradd -r -m -U -d /home/git -s /bin/bash git
+      ```
    *NOTE!* The user home directory is set to ```/home/git```. The repositories will be stored under this directory.
 3. Switch to 'git' user:
    ```
