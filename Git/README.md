@@ -6,7 +6,7 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 - CentOS 7 environment
 - Working networking connection with access to the internet.
 - Basic understanding of Linux Bash.
-- Remote client for testing. (In my case I used a Windows client with [Settings.xml](https://git-scm.com/download/win)) ) 
+- Remote client for testing. (In my case I used a Windows client with [Git Bash](https://git-scm.com/download/win)) ) 
 
 ## How to configure the Git server manually
 ## Server side
@@ -15,29 +15,31 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    sudo yum install git -y
    ```
 2. Create a new user for managing the Git environment:
-      ```
-      sudo useradd -r -m -U -d /home/git -s /bin/bash git
-      ```
+   ```
+   sudo useradd -r -m -U -d /home/git -s /bin/bash git
+   ```
+   
    *NOTE!* The user home directory is set to ```/home/git```. The repositories will be stored under this directory.
-3. Switch to 'git' user:
+   
+4. Switch to 'git' user:
    ```
    sudo su - git
    ```
-4. Create an SSH directory and the correct permissions:
+5. Create an SSH directory and the correct permissions:
    ```
    mkdir -p ~/.ssh
    chmod 700 ~/.ssh
    ```
-5. Generate an SSH key:
+6. Generate an SSH key:
    ```
    ssh-keygen -t rsa -b 4096 -N "" -f ~/.ssh/id_rsa
    ```
-6. Create an authorized keys file with the correct permission, **if it does not exist**:
+7. Create an authorized keys file with the correct permission, **if it does not exist**:
    ```
    touch ~/.ssh/authorized_keys
    chmod 600 ~/.ssh/authorized_keys
    ```
-7. Add your public key to the Authorized Keys file:
+8. Add your public key to the Authorized Keys file:
    ```
    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
    ```
