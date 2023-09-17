@@ -88,6 +88,7 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    ```
    ```
    Output:
+   
    debug1: pledge: fork
    warning: You appear to have cloned an empty repository.
    debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
@@ -113,6 +114,7 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
    ```
    ```
    Output:
+   
    debug1: pledge: fork
    Enumerating objects: 3, done.
    Counting objects: 100% (3/3), done.
