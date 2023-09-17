@@ -62,13 +62,15 @@ The purpose of this tutorial is to set up a comprehensive Git server environment
 
 ## Configuring local Git Repository on the client side
 
-1. Navigate back to the client. 
-   *NOTE!* If you are using a Windows client use (Git bash)[https://git-scm.com/download/win] for Windows. 
-2. Genetate ssh key and follow the prompts:
+1. Navigate back to the client.
+   
+   *NOTE!* If you are using a Windows client use [Git bash](https://git-scm.com/download/win) for Windows.
+   
+3. Genetate ssh key and follow the prompts:
    ```
    ssh-keygen
    ```
-3. After a successful key generation, copy the key to the target user's authorized keys on the server (in this case, user 'git'):
+4. After a successful key generation, copy the key to the target user's authorized keys on the server (in this case, user 'git'):
    ```
    ssh-copy-id git@192.168.1.51
    ```
