@@ -13,7 +13,7 @@ The purpose of this tutorial is to provide comprehensive instructions on creatin
 Reconfiguring the default home directory allows you to move the user's home directory to the storage disk, enhancing security. Once this change is made, new users' home directories will be automatically redirected to the second disk.
 1. If ssh is not installed, install it:
     ```
-    sudo apt install ssh -y
+    sudo apt install ssh
     
     ```
 2. Make sure ssh is enables:
