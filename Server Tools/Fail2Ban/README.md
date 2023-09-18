@@ -22,7 +22,7 @@ Configuring Fail2Ban involves scanning log files such as ```/var/log/auth.log```
     ```
     systemctl status fail2ban
     ```
-        If everything is correct, this should be the output
+    If everything is correct, this should be the output
         ```
         Output:
       
