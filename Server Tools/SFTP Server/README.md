@@ -1,17 +1,17 @@
 
 # SFTP-Server
-In this tutorial, I will instruct you on how to construct an Ubuntu-based SFTP server with groups, and users, as well as configure SFTP Jail, File auditing, and Fail2Ban.
+The purpose of this tutorial is to provide comprehensive instructions on creating an Ubuntu-based SFTP server. In this tutorial, you will learn how to set up user groups and individual users, configure SFTP Jail, enable file auditing, and implement Fail2Ban for enhanced security.
 
 
 ## Requirements
-- Ubuntu 18.04 or higher.
-- At least 1024MB of RAM.
+- Ubuntu 18.04 or higher
 - At least 10BG Storage 
 - 2 Disks, 1 For the OS, 1 for storage.
-- Open port 22 (SSH).
+- Inbound port 22 (SSH).
 
-## Reconfigure the default home directory
-This is used to move the user's home directory to the storage disk for better security. After changing the default home directory new users' home directory will be automatically redirected to the second disk.
+## Reconfiguring default home directory
+Reconfiguring the default home directory allows you to move the user's home directory to the storage disk, enhancing security. Once this change is made, new users' home directories will be automatically redirected to the second disk.
+1. Chance the default home directory of each new user:
 ```nh
 vi /etc/default/useradd
 
@@ -19,29 +19,45 @@ HOME=/<DiskName>
 ```
 
 ## Configuring Fail2Ban
-Fail2Ban scans log files like /var/log/auth.log and bans IP addresses conducting too many failed login attempts. It blocks clients that repeatedly fail to authenticate correctly with your system.
-### Installaion
-```nh
-#install fail2ban package:
-
+Configuring Fail2Ban involves scanning log files such as /var/log/auth.log and banning IP addresses that have made too many failed login attempts. It effectively blocks clients that repeatedly fail to authenticate correctly with your system.
+### Installations
+2. Install Fail2Ban package:
+```
 apt-get update -y
-apt-get install fail2ban
-
-#allow ssh if it is not allowed:
-
+apt-get install fail2ban -y
+```
+3. Allow ssh server:
+```
 ufw allow ssh
-ufw enable
-
-#start and enable fail2ban service:
-
+ufw enable -y
+```
+4. Start and enable Fail2Ban service:
+```
 systemctl start fail2ban
 systemctl enable fail2ban
-
-#check if servise is running:
+```
+5. After a successful installation check the service status:
+```
 systemctl status fail2ban
+```
+  If everything is correct, this should be the output
+```
+Output:
 
-#configiure fail2ban local conf files:
+● fail2ban.service - Fail2Ban Service
+     Loaded: loaded (/lib/systemd/system/fail2ban.service; disabled; vendor preset: enabled)
+     Active: active (running) since Mon 2023-09-18 12:10:52 UTC; 7s ago
+       Docs: man:fail2ban(1)
+   Main PID: 1946 (fail2ban-server)
+      Tasks: 5 (limit: 4558)
+     Memory: 12.8M
+        CPU: 122ms
+     CGroup: /system.slice/fail2ban.service
+             └─1946 /usr/bin/python3 /usr/bin/fail2ban-server -xf start 
+```
 
+333333
+```
 cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
 cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 ```
