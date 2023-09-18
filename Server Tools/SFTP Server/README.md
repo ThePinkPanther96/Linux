@@ -170,9 +170,9 @@ Maximum log file size (in MB):
   ```
 ### Creating autid rules
 4. The first thing you want to do is to make sure you're starting with a clean state:
-```
-auditctl -l
-```
+  ```
+  auditctl -l
+  ```
 5. Configure audit rules:
   ```
   vi /etc/audit/rules.d/audit.rules
