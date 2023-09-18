@@ -22,21 +22,21 @@ Configuring Fail2Ban involves scanning log files such as ```/var/log/auth.log```
     ```
     systemctl status fail2ban
     ```
-    If everything is correct, this should be the output
-    ```
-    Output:
-  
-    ● fail2ban.service - Fail2Ban Service
-         Loaded: loaded (/lib/systemd/system/fail2ban.service; disabled; vendor preset: enabled)
-         Active: active (running) since Mon 2023-09-18 12:10:52 UTC; 7s ago
-           Docs: man:fail2ban(1)
-       Main PID: 1946 (fail2ban-server)
-          Tasks: 5 (limit: 4558)
-         Memory: 12.8M
-            CPU: 122ms
-         CGroup: /system.slice/fail2ban.service
-                 └─1946 /usr/bin/python3 /usr/bin/fail2ban-server -xf start 
-    ```
+        If everything is correct, this should be the output
+        ```
+        Output:
+      
+        ● fail2ban.service - Fail2Ban Service
+             Loaded: loaded (/lib/systemd/system/fail2ban.service; disabled; vendor preset: enabled)
+             Active: active (running) since Mon 2023-09-18 12:10:52 UTC; 7s ago
+               Docs: man:fail2ban(1)
+           Main PID: 1946 (fail2ban-server)
+              Tasks: 5 (limit: 4558)
+             Memory: 12.8M
+                CPU: 122ms
+             CGroup: /system.slice/fail2ban.service
+                     └─1946 /usr/bin/python3 /usr/bin/fail2ban-server -xf start 
+        ```
 6. Copy both ```fail2ban.conf``` and ```jail.conf``` to the same directory as .local, so the original files will be saved as backups:
     ```
     cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
