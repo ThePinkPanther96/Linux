@@ -11,7 +11,7 @@ The purpose of this tutorial is to provide comprehensive instructions on creatin
 
 ## Reconfiguring default home directory
 Reconfiguring the default home directory allows you to move the user's home directory to the storage disk, enhancing security. Once this change is made, new users' home directories will be automatically redirected to the second disk.
-1. Chance the default home directory of each new user:
+1. Chance the default home directory to the second disk of each new user:
   ```nh
   vi /etc/default/useradd
 
