@@ -48,7 +48,7 @@ Edit the following file:
     ```
 4. save the file & restart the ssh service:
     ```
-    ystemctl restart ssh
+    systemctl restart ssh
     ```
 
 ## Configuring Group & users:
