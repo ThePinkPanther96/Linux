@@ -1,6 +1,6 @@
 
 # SFTP-Server
-The purpose of this tutorial is to provide comprehensive instructions on creating an Ubuntu-based SFTP server. In this tutorial, you will learn how to set up user groups and individual users, configure SFTP Jail, enable file auditing, and implement Fail2Ban for enhanced security.
+The purpose of this tutorial is to provide comprehensive instructions on creating an Ubuntu-based SFTP server. In this tutorial, you will learn how to set up user groups and individual users and SFTP Jail.
 
 
 ## Requirements
