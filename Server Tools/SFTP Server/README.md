@@ -30,15 +30,15 @@ Reconfiguring the default home directory allows you to move the user's home dire
 ## Configuring SFTP Jail
 An SFTP chroot jail allows you to create a secure directory that confines a user to a specific area.
 Edit the following file:
-1. Navigate to ```sshd_config```:
-    ```
-    vi /etc/ssh/sshd_config
-    ```
-2. Create a dedicated group:
+1. Create a dedicated group
     ```
     addgroup <Group Nmae>
     ```
-2. Paste the following settings:
+2. Navigate to ```sshd_config```:
+    ```
+    vi /etc/ssh/sshd_config
+    ```
+3. Paste the following settings:
     ```
     Match Group <Group Nmae>
         ChrootDirectory %h
@@ -46,7 +46,7 @@ Edit the following file:
         AllowTcpForwarding no
         ForceCommand internal-sftp
     ```
-3. save the file & restart the ssh service:
+4. save the file & restart the ssh service:
     ```
     ystemctl restart ssh
     ```
@@ -59,7 +59,7 @@ Edit the following file:
     ```
 2. Edit the user, group, and set the correct permissions:
     ```
-    usermod -G <groupname> <username>
+    usermod -G <group name> <username>
     chown root:root /<homedir>/<username>
     chmod 755 /<home>/<username>
     ```
