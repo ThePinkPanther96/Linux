@@ -1,7 +1,7 @@
 
 # SFTP-Server
+## Introduction
 The purpose of this tutorial is to provide comprehensive instructions on creating an Ubuntu-based SFTP server. In this tutorial, you will learn how to set up user groups and individual users and SFTP Jail.
-
 
 ## Requirements
 - Ubuntu 18.04 or higher
@@ -71,4 +71,3 @@ Edit the following file:
     mkdir <directory>
     chown <username>:<group> *
     ```
-

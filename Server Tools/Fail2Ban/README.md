@@ -2,7 +2,13 @@
 ## Introduction
 Fail2Ban watches for suspicious activity, like too many login attempts from one place, and blocks those suspicious users from accessing your system, helping to keep it safe from potential threats.
 Configuring Fail2Ban involves scanning log files such as ```/var/log/auth.log``` and banning IP addresses that have made too many failed login attempts. It effectively blocks clients that repeatedly fail to authenticate correctly with your system.
-### Installations
+
+## Requirements 
+- Ubuntu 18.04 or higher
+- At least 10BG Storage 
+- Inbound port 22 (SSH).
+
+## Configuration
 2. Install Fail2Ban package:
     ```
     apt-get update -y
@@ -69,3 +75,31 @@ Configuring Fail2Ban involves scanning log files such as ```/var/log/auth.log```
     [sshd]
     enabled = true
     ``
+# Testing
+Now, that you've successfully configured Fail2Ban and Fail2Ban Jail, you can start test it's fonctunabilty. 
+
+1. Try logging in with a wrong password. Repeate this step until you reach the 'maxrety' trashold that you've configured previusly. 
+
+2. From the server use these commands to test Fail2Ban status.
+    - Use this command to see a list of blocked IP addresses:
+    
+    ```
+    fail2ban-client status 
+    ```
+
+    - Use this command to release banned IP addresses:
+
+    ```
+    fail2ban-client unban <IP Address>
+    ```
+    
+    - Enter ```fail2ban.log``` to see the full list of IP addresses:
+    ```
+    vi /var/log/fail2ban.log
+    # Or
+    less /var/log/fail2ban.log|grep ban
+    ```
+
+I trust this guide equips you with the essential information to commence your project.
+Should you have any inquiries or suggestions, please don't hesitate to reach out to me.
+Many thanks! 😊
