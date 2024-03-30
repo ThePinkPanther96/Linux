@@ -1,0 +1,32 @@
+Welcome to file management!
+Select from the menu: 
+ 
+ [1] Create New User
+ [2] Delete User
+ [3] Create New Group
+ [4] Delete Group
+ [5] Add User to Group
+ [6] Change User Password
+
+ [7] List groups
+ [8] List users
+
+ [9]Exit
+
+
+---- outputs ----
+
+Missing input. Please provide both username and password.
+
+Missing input. Please provide both username and group name.
+
+Missing input. Please provide a valid group name.
+
+Missing input. Please provide a valid username.
+
+
+###########################################################
+######################### USERS ###########################
+###########################################################
+######################### GROUPS ##########################
+###########################################################
