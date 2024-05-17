@@ -1,0 +1,9 @@
+[Unit]
+Description="Your Service Description"
+
+[Service]
+Type=simple
+ExecStart=/path/to/your/script.sh
+
+[Install]
+WantedBy=multi-user.target
